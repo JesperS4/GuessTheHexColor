@@ -14,7 +14,7 @@ function App() {
             colorArray.push(randomColor)
         }
         
-        setCorrectColor(colorArray[Math.floor(Math.random(0, colorArray.length - 1))])
+        setCorrectColor(colorArray[Math.round(Math.random(0, colorArray.length + 1))])
         setColors(colorArray)
 
         console.log(JSON.stringify(colors))
@@ -31,7 +31,7 @@ function App() {
                 <div className='flex gap-3 justify-center'>
                     {
                         colors.map( value => (
-                            <ColorGuessBox key={value} hex={value} />
+                            <ColorGuessBox key={value} hex={value} correctColor={correctColor} />
                         ))
                     }
                 </div>
