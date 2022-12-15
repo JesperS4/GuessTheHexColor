@@ -13,12 +13,21 @@ function App() {
             const randomColor = "#"+Math.floor(Math.random()*16777215).toString(16);
             colorArray.push(randomColor)
         }
-        
-        setCorrectColor(colorArray[Math.round(Math.random(0, colorArray.length + 1))])
+        setCorrectColor(colorArray[Math.floor(Math.random() * colorArray.length)])
         setColors(colorArray)
 
-        console.log(JSON.stringify(colors))
     }, [])
+
+
+    const restartGame = () => {
+        let colorArray = []
+        for (let i = 0; 3 > i; i++) {
+            const randomColor = "#"+Math.floor(Math.random()*16777215).toString(16);
+            colorArray.push(randomColor)
+        }
+        setCorrectColor(colorArray[Math.floor(Math.random() * colorArray.length)])
+        setColors(colorArray)
+    }
     
 
     return (
@@ -31,7 +40,7 @@ function App() {
                 <div className='flex gap-3 justify-center'>
                     {
                         colors.map( value => (
-                            <ColorGuessBox key={value} hex={value} correctColor={correctColor} />
+                            <ColorGuessBox key={value} hex={value} correctColor={correctColor} restart={restartGame} />
                         ))
                     }
                 </div>
