@@ -8,14 +8,7 @@ function App() {
     const [correctColor, setCorrectColor] = useState("")
 
     useEffect(() => {
-        let colorArray = []
-        for (let i = 0; 3 > i; i++) {
-            const randomColor = "#"+Math.floor(Math.random()*16777215).toString(16);
-            colorArray.push(randomColor)
-        }
-        setCorrectColor(colorArray[Math.floor(Math.random() * colorArray.length)])
-        setColors(colorArray)
-
+        restartGame()
     }, [])
 
 
